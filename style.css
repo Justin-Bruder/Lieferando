@@ -1,0 +1,435 @@
+html {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.d-none{
+  display: none;
+}
+
+.orderButtonContainer{
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/15%);
+}
+
+.orderButton{
+  background-color:#ff8000;
+  height: 80%;
+  width: 80%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #DBD9D7;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/15%);
+  cursor: pointer;
+}
+
+body {
+  margin: 0px;
+  background-color: #fcfcfc;
+}
+
+.header {
+  display: flex;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/15%);
+}
+
+.fullPage {
+  display: flex;
+}
+
+.left {
+  width: 70%;
+}
+
+.headlineContainer {
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.LieferandoLeftCorner {
+  color: #ff8000;
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+.menuCard {
+  display: flex;
+  justify-content: center;
+}
+
+.headerIconsRightCorner {
+  height: 20px;
+  padding-right: 20px;
+}
+
+.headImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  z-index: -1;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/15%);
+}
+
+.checked {
+  color: #f36805;
+}
+
+.fafa-starempt {
+  color: white;
+}
+
+.ratingNumber {
+  padding-left: 5px;
+  text-decoration: underline;
+}
+
+.bag {
+  height: 17px;
+}
+
+.bike {
+  height: 20px;
+  align-items: center;
+}
+
+.bagAndBike {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/15%);
+}
+
+.dishContainer {
+  height: 200px;
+  width: 80%;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid rgb(219, 217, 215);
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+
+.plus {
+  height: 30px;
+  position: relative;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.menuImage {
+  height: 120px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headlineDishes {
+  text-align: flex-start;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.pElementContainer {
+  margin-bottom: 30px;
+  text-align: left;
+  word-break: normal;
+}
+
+.leftSideMenuContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  word-wrap: break-word;
+}
+
+.menuImageContainer {
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.padding-left {
+  padding-left: 5px;
+}
+
+.basketContainer {
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0/30%);
+}
+
+.basketContainerDialog{
+  width: 100%;
+}
+
+#card{
+  position: sticky;
+  top: 0px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+.deliverAndTakeaway {
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.deliver {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  border: 1px solid rgb(219, 217, 215);
+  border-radius: 50px;
+  width: 50%;
+  justify-content: center;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.takeaway {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
+  border: 1px solid rgb(219, 217, 215);
+  border-radius: 50px;
+  width: 50%;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.headlineBasket {
+  display: flex;
+  justify-content: center;
+}
+
+.deliverTimeContainer {
+  margin-left: 10px;
+}
+
+.bikeBasket {
+  height: 20px;
+  padding-right: 5px;
+}
+
+.bagBasket {
+  height: 17px;
+  padding-right: 10px;
+}
+
+#basketItems {
+  margin-top: 40px;
+}
+
+.bagLogoBig {
+  height: 40px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+.h2shoppingCard {
+  display: flex;
+  justify-content: center;
+}
+
+.categorieTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+.categoryStyle {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.categoryStyle:hover {
+  border: 1px solid #DBD9D7;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.categoryLinks{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#costs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.amountDishPrice {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+}
+
+.minusAndPlusIcons {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.trashIcon {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.basketIcons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  justify-content: flex-end;
+  padding-right: 8px;
+  padding-top: 10px;
+}
+
+.emptyBasketText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.responsiveBasket{
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+}
+
+.closeImage{
+  height: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.closeImageConatiner{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 750px) {
+  .basketContainer {
+    
+    display: none;
+  }
+
+
+  .left {
+    width: 100%;
+  }
+}
+
+@media(min-width: 750px) {
+  .orderButtonContainer{
+    display: none;
+  }
+
+  .closeImage{
+    display: none;
+  }
+}
+
+@media (max-width: 650px){
+  .category{
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .dishContainer {
+    height: 150px;
+  }
+
+  .menuImage {
+    display: none;
+  }
+
+  .pElement{
+    display: none;
+  }
+}
+
+@media (max-width: 530px) {
+
+  .dishContainer {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishContainer {
+    height: 250px;
+  }
+}
+
+@media (max-width: 355px) {
+  .dishContainer {
+    height: 180px;
+  }
+}

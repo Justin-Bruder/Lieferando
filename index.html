@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lieferbote</title>
+    <link rel="icon" type="image/x-icon" href="./img/sushi.png">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js">
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body onload="renderCategorie()">
+
+    <header>
+      <div class="headlineContainer">
+        <div class="LieferandoLeftCorner">Lieferando</div>
+        <div class="menuCard"><b>Speisekarte</b></div>
+        <div class="menuRightCorner">
+          <img class="headerIconsRightCorner" src="./img/germanFlag.png" />
+          <img class="headerIconsRightCorner" onclick="show()" src="./img/menuIcon.png" />
+        </div>
+      </div>
+    </header>
+
+
+
+    
+    <div class="headImageConatiner">
+      <img class="headImage" src="./img/headImg.png" />
+    </div>
+
+    <div class="fullPage">
+
+    <div class="left">
+
+    <div class="ratingContainer">
+      <h1>Sushifreunde</h1>
+      <div>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="ratingNumber">507 Bewertungen</span>
+      </div>
+
+      <div class="bagAndBike">
+        <img class="bag" src="./img/bag.png" />
+        <span>Min. 15,00 € </span>
+        <span>-</span>
+        <img class="bike" src="./img/bike.png" />
+        <span>1,50 €</span>
+      </div>
+
+      <div class="category">
+        <div class="categoryStyle"><a class="categoryLinks" href="#Beliebt"> Beliebt ❤️</a></div>
+        <div class="categoryStyle"><a class="categoryLinks" href="#Vorspeisen"> Vorspeisen</a></div>
+        <div class="categoryStyle"><a class="categoryLinks" href="#Winterzeit"> Winterzeit</a></div>
+        <div class="categoryStyle"><a class="categoryLinks" href="#Nigiri"> Nigiri</a></div>
+        <div class="categoryStyle"><a class="categoryLinks" href="#Futo Maki"> Futo Maki</a></div>
+        <div class="categoryStyle"><a class="categoryLinks" href="#Inside Out Rolls"> Inside Out Rolls</a></div>
+    </div>
+    </div>
+
+    <main>
+      <div class="menuTypeContainer" id="mainContainer"></div>
+    </main>
+
+  </div>
+
+    <div id ="basketContainer" class="basketContainer">
+      <div id="card">
+        <div class="closeImageConatiner"><img onclick="closeDialog();" class="closeImage" src="./img/close.png"></div>
+        <div class="headlineBasket"><h2 class="h2shoppingCard">Warenkorb</h2></div>
+        <div class="deliverAndTakeaway">
+            <div onclick="changeColor('deliver')" id="deliver" class="deliver">
+                <img class="bikeBasket" src="./img/bike.png">
+                <div>
+                    <div><b>Lieferung</b></div>
+                    <div>20 min</div>
+                </div>
+            </div>
+            <div onclick="changeColor('take')" id="take" class="takeaway">
+                <img class="bagBasket" src="./img/bag.png">
+                <div>
+                <div><b>Abholung</b></div>
+                <div>30-45 min</div>
+            </div>
+            </div>
+        </div>
+        <div id="basketItems">
+          
+        </div>
+        <div id="costsConatiner">
+
+        </div>
+    </div>
+  </div>
+
+  <div class="orderButtonContainer">
+    <div class="orderButton" onclick="show();">
+      <h1>Bestellung ansehen</h1>
+    </div>
+
+  </div>
+  </body>
+</html>
