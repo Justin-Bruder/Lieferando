@@ -273,39 +273,47 @@ function renderCategorie() {
   }
 
   if (shoppingBasket.length === 0) {
-    document.getElementById("basketItems").innerHTML = `
-      <div class="emptyBasketText">
-        <div><img class="bagLogoBig" src="./img/bag.png"></div>
-        <h3>Ihr Warenkorb ist leer</h3>
-      </div>`;
+    document.getElementById("basketItems").innerHTML = renderEmptyBasket();
   }
+}
+
+function renderEmptyBasket(){
+  return `
+  <div class="emptyBasketText">
+    <div><img class="bagLogoBig" src="./img/bag.png"></div>
+    <h3>Ihr Warenkorb ist leer</h3>
+  </div>`
 }
 
 function renderMenu(dishes) {
   for (let i = 0; i < dishes.length; i++) {
     const dish = dishes[i];
 
-    document.getElementById("mainContainer").innerHTML += `
-        <div class="dishContainer">
-        <div class="leftSideMenuContainer">
-        <div class="headlineDishes">
-          <h2 class="">${dish["dish"]}</h2>
-          </div>
-          <div class="pElementContainer">
-          <p class="padding-left pElement">${dish["description"]}</p>
-        </div>
-        <div class="price">${dish["price"].toFixed(2).replace(".", ",")} €</div>
-        </div>
-      <div class="menuImageContainer">
-      <img class="menuImage" src="${dish["image"]}" />
-    </div>
-      <div>
-        <img class="plus" src="./img/plus.png" onclick="addToBasket(${
-          dish.id
-        })">
-      </div>
-    </div>`;
+    document.getElementById("mainContainer").innerHTML += generateMenuCard(dish);
   }
+}
+
+function generateMenuCard(dish){
+  return `
+  <div class="dishContainer">
+  <div class="leftSideMenuContainer">
+  <div class="headlineDishes">
+    <h2 class="">${dish["dish"]}</h2>
+    </div>
+    <div class="pElementContainer">
+    <p class="padding-left pElement">${dish["description"]}</p>
+  </div>
+  <div class="price">${dish["price"].toFixed(2).replace(".", ",")} €</div>
+  </div>
+<div class="menuImageContainer">
+<img class="menuImage" src="${dish["image"]}" />
+</div>
+<div>
+  <img class="plus" src="./img/plus.png" onclick="addToBasket(${
+    dish.id
+  })">
+</div>
+</div>`
 }
 
 let shoppingBasket = [];
@@ -330,7 +338,6 @@ function addToBasket(i) {
 
   updateShoppingBasket();
   renderBasket();
-  renderCategorie();
 }
 
 function renderBasket() {
@@ -340,55 +347,67 @@ function renderBasket() {
     const amounts = amountBasket[i];
     let finalPrice = amounts * price;
 
-    document.getElementById("basketItems").innerHTML += `
-    
-    <div class="amountDishPrice">
-    <div>
-    ${amounts}
-    ${basket}
-    </div>
-    <div>${finalPrice.toFixed(2).replace(".", ",")}€</div>
-    </div>
-    <div class="basketIcons">
-      <img onclick="deleteDish(${i})" class="trashIcon"src="./img/trash.png">
-      <img onclick="increaseDish(${i})" class="minusAndPlusIcons"src="./img/plus.png">
-      <img onclick="decreaseDish(${i})" class="minusAndPlusIcons"src="./img/minus.png">
-    </div>`;
+    document.getElementById("basketItems").innerHTML += generateBasketHTML(amounts, basket, finalPrice, i);
   }
+}
+
+function generateBasketHTML(amounts, basket, finalPrice, i){
+  return `
+    
+  <div class="amountDishPrice">
+  <div>
+  ${amounts}
+  ${basket}
+  </div>
+  <div>${finalPrice.toFixed(2).replace(".", ",")}€</div>
+  </div>
+  <div class="basketIcons">
+    <img onclick="deleteDish(${i})" class="trashIcon"src="./img/trash.png">
+    <img onclick="increaseDish(${i})" class="minusAndPlusIcons"src="./img/plus.png">
+    <img onclick="decreaseDish(${i})" class="minusAndPlusIcons"src="./img/minus.png">
+  </div>`
 }
 
 function updateShoppingBasket() {
   let sum = 0;
 
-  var abholenDiv = document.getElementById("take");
-  var liefernDiv = document.getElementById("deliver");
+  let takeDiv = document.getElementById("take");
+  let deliverDiv = document.getElementById("deliver");
 
   for (let i = 0; i < prices.length; i++) {
     sum += prices[i] * amountBasket[i];
   }
   let finalSum = sum + 1;
 
-  if (abholenDiv.style.backgroundColor === "white") {
-    document.getElementById("costsConatiner").innerHTML = `
+  if (takeDiv.style.backgroundColor === "white") {
+    document.getElementById("costsConatiner").innerHTML = generateTakeawayHTML(sum);
+  } else {
+    takeDiv.style.backgroundColor = "lightgrey";
+
+    document.getElementById("costsConatiner").innerHTML = generateDeliverHTML(sum, finalSum);
+  }
+}
+
+function generateDeliverHTML(sum, finalSum){
+  return `
+  
+  <div id="costs"> 
+     Zwischensumme: ${sum.toFixed(2).replace(".", ",")}<br>
+     Lieferkosten: 1€<br>
+     Gesamt: ${finalSum.toFixed(2).replace(".", ",")}
+  </div>
+`
+}
+
+function generateTakeawayHTML(sum) {
+  return`
   
        <div id="costs"> 
           Zwischensumme: ${sum.toFixed(2).replace(".", ",")}<br>
           Lieferkosten: 0€<br>
           Gesamt: ${sum.toFixed(2).replace(".", ",")}
        </div>
-  `;
-  } else {
-    abholenDiv.style.backgroundColor = "lightgrey";
-
-    document.getElementById("costsConatiner").innerHTML = `
-  
-       <div id="costs"> 
-          Zwischensumme: ${sum.toFixed(2).replace(".", ",")}<br>
-          Lieferkosten: 1€<br>
-          Gesamt: ${finalSum.toFixed(2).replace(".", ",")}
-       </div>
-  `;
-  }
+  `
 }
 
 function increaseDish(i) {
@@ -418,28 +437,27 @@ function deleteDish(i) {
 
   updateShoppingBasket();
   renderBasket();
-  renderCategorie();
 }
 
 function changeColor(option) {
-  var abholenDiv = document.getElementById("take");
-  var liefernDiv = document.getElementById("deliver");
+  let takeDiv = document.getElementById("take");
+  let deliverDiv = document.getElementById("deliver");
 
   if (option === "take") {
-    abholenDiv.style.backgroundColor = "white";
-    liefernDiv.style.backgroundColor = "";
+    takeDiv.style.backgroundColor = "white";
+    deliverDiv.style.backgroundColor = "";
   } else if (option === "deliver") {
-    liefernDiv.style.backgroundColor = "white";
-    abholenDiv.style.backgroundColor = "";
+    deliverDiv.style.backgroundColor = "white";
+    takeDiv.style.backgroundColor = "";
   }
   updateShoppingBasket();
 }
 
 window.onload = function () {
-  var abholenDiv = document.getElementById("take");
-  var liefernDiv = document.getElementById("deliver");
-  abholenDiv.style.backgroundColor = "white";
-  liefernDiv.style.backgroundColor = "";
+  let takeDiv = document.getElementById("take");
+  let deliverDiv = document.getElementById("deliver");
+  takeDiv.style.backgroundColor = "white";
+  deliverDiv.style.backgroundColor = "";
 };
 
 function show() {

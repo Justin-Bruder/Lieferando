@@ -138,8 +138,8 @@ body {
 .plus {
   height: 30px;
   position: relative;
-  right: 5px;
-  top: 5px;
+  right: 10px;
+  top: 10px;
   cursor: pointer;
 }
 
@@ -191,6 +191,7 @@ body {
   width: 30%;
   background-color: white;
   box-shadow: 0 3px 10px 0 rgb(0 0 0/30%);
+  padding: 20px;
 }
 
 .basketContainerDialog{
